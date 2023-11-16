@@ -20,7 +20,7 @@ function verifyLogin(email, password) {
             if (response.status === 200) {
                 console.log("OK")
                 erreur.classList.add("inactive")
-                let data = await response.json();
+                let data = await response.json()
                 localStorage.setItem("jwt", data.token)
                 window.location.href = "/FrontEnd/index.html"
             } else {

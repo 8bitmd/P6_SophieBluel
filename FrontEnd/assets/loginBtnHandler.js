@@ -11,6 +11,3 @@ logInOut.addEventListener("click", () => {
         localStorage.removeItem("jwt")
     }
 })
-
-
-

@@ -186,6 +186,208 @@ nav img {
 	margin-bottom: 1em;
 }
 
+#portfolio > div:first-of-type {
+	display: flex;
+	justify-content: center;
+}
+
+/*modal*/
+#edit-projects {
+	display: flex ;
+	flex-direction: row;
+	align-items: center;
+	gap: 5px;
+	margin-left: 25px;
+}
+
+#edit {
+	position: relative;
+	top: 4px;
+	cursor: pointer;
+	background: none;
+	border: none;
+	font-family: 'Work Sans';
+}
+
+#modal {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	z-index: 100;
+}
+
+.close-modal {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.return-modal {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.modal-wrapper {
+	display: flex;
+	flex-direction: column;
+	width: 500px;
+	padding: 50px;
+	border-radius: 10px;
+	background-color: white;
+	position: relative;
+}
+
+.modal-addimage {
+	position: absolute;
+}
+
+.modal-wrapper h2 {
+	font-family: "Work Sans";
+	font-weight: 400;
+	color: black;
+	margin-bottom: 50px;
+}
+
+.image-container {
+	position: relative;
+}
+
+/*delete button on every photo*/
+.image-container button {
+	position: absolute;
+	top: 5px;
+	right: 7px;
+	border: none;
+	border-radius: 5px;
+	background-color: black;
+	padding: 4px;
+	cursor: pointer;
+}
+
+.image-container button i {
+	color: white;
+}
+
+.modal-gallery img {
+	position: relative;
+	max-height: 110px;
+	max-width: 83px;
+}
+
+.modal-gallery-content {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+}
+
+.goto-modal-submit-form {
+	display: flex;
+	justify-content: center;
+	align-self: center;
+	width: 230px;
+	color: white;
+	font-family: "Syne";
+	font-size: 14px;
+	font-weight: 700;
+	background-color: #1D6154;
+	border: none;
+	border-radius: 60px;
+	padding: 15px 30px 15px 30px;
+	cursor: pointer;
+}
+
+#submit-form {
+	gap: 30px;
+}
+
+#submit-form label[for="title"], #submit-form label[for="category"] {
+	font-weight: 600;
+	border: none;
+	background-color: white;
+	margin-bottom: -30px;
+}
+#category, #title {
+	padding-left: 15px;
+	height: 50px;
+	box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.09);
+}
+
+.submit-form_file {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	width: 420px;
+	max-height: 170px;
+	background-color: #E8F1F6;
+	padding: 30px;
+}
+
+.submit-form_file label {
+	display: flex;
+	justify-content: center;
+	align-self: center;
+	border-radius: 50px;
+	color: #306685;
+	background-color: #CBD6DC;
+	margin-top: 10px;
+	width: 170px;
+	font-size: 16px;
+	padding: 16px;
+	cursor: pointer;
+}
+
+.submit-form_file input {
+	visibility: hidden;
+}
+
+.submit-form_file p {
+	position: relative;
+	bottom: 25px;
+	color: #444444;
+	margin-bottom: -25px;
+}
+
+.upload-preview {
+	box-sizing: border-box;
+	object-fit: contain;
+	width: 100%;
+	height: 100%;
+}
+
+.clear-preview {
+	position: absolute;
+	bottom: 1em;
+	font-size: 12px;
+	color: #1D6154;
+	background-color: rgba(256, 256, 256, 80%);
+	border-color: #1D6154;
+	border-radius: 60px;
+	padding: 10px 10px 10px 10px;
+	cursor: pointer;
+}
+
+.greyedOutSubmit {
+	background-color: #A7A7A7;
+	color: white;
+}
+
+/*end modal CSS*/
+
 .filtres {
 	display: flex;
 	justify-content: center;
@@ -329,4 +531,8 @@ label {
 .incorrect {
 	border: 3px solid #b62a00;
 	animation: incorrect 0.5s;
+}
+
+input[type="submit"] {
+	cursor: pointer;
 }
