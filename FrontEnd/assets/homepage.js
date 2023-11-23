@@ -2,10 +2,10 @@ import getWorks from './store.js'
 const WORKS = await getWorks()
 
 const filterAll = document.querySelector(".filter-all")
-
+const gallery = document.querySelector(".gallery")
 export function insertPortfolioWorks(WORKS) {
+    gallery.innerHTML = ""
     for (let i = 0; i < WORKS.length; i++) {
-        const gallery = document.querySelector(".gallery")
         const figure = document.createElement("figure")
         const image = document.createElement("img")
         const caption = document.createElement("figcaption")

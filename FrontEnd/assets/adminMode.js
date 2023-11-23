@@ -46,8 +46,9 @@ async function populateModalWorks(WORKS) {
         deleteBtn.innerHTML = `<i class="fa-solid fa-trash-can"></i>`
         deleteBtn.classList.add("deletebtn")
 
-        deleteBtn.addEventListener("click", () => {
-            deleteWork(WORKS[i]["id"])
+        deleteBtn.addEventListener("click", async () => {
+            await deleteWork(WORKS[i]["id"])
+            await insertPortfolioWorks(await getWorks())
         })
         image.src = WORKS[i]["imageUrl"]
 

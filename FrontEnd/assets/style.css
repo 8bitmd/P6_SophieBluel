@@ -68,6 +68,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 /** end reset css**/
 
 #edit-banner {
@@ -307,7 +308,19 @@ nav img {
 	border: none;
 	border-radius: 60px;
 	padding: 15px 30px 15px 30px;
+	margin-top: 100px;
 	cursor: pointer;
+}
+
+.goto-modal-submit-form:before {
+	display: block;
+	position: absolute;
+	content: "";
+	background-color: gray;
+	margin: 20px 0 20px 0;
+	width: 80%;
+	height: 1px;
+	bottom: 8em;
 }
 
 #submit-form {
@@ -360,6 +373,12 @@ nav img {
 	bottom: 25px;
 	color: #444444;
 	margin-bottom: -25px;
+}
+
+#submit-photo {
+	position: relative;
+	bottom: 30px;
+	margin-bottom: -33px;
 }
 
 .upload-preview {
