@@ -1,4 +1,5 @@
 import getWorks, {addWork, invalidateWorksCache} from './store.js'
+import {insertPortfolioWorks} from './homepage.js'
 
 let bannerContainer = document.querySelector(".edit-banner_container")
 let editProjectsContainer = document.querySelector(".edit-projects_container")
@@ -95,20 +96,22 @@ window.onclick = function(event) {
 
 const submitForm = document.getElementById("submit-form")
 function checkFormCompletion(form) {
-    const inputs = form.getElementsByTagName("input")
-    for (let i = 0; i < inputs.length; i++) {
-        if(inputs[i].hasAttribute("required")) {
-            if(inputs[i].value === "") {
-                submitFormBtn.style.backgroundColor = "#A7A7A7"
-            } else {
-                submitFormBtn.style.backgroundColor = "#1D6154"
-            }
-        }
-    }
+    //const inputs = form.getElementsByTagName("input") // ici
+    let valid = true
+
+    form.querySelectorAll("input[type='file'], input[type='text'], select").forEach(input => {
+        valid &= input.validity.valid
+    })
+
+    submitFormBtn.disabled = !valid
 }
 
 submitForm.addEventListener("change", () => {
     checkFormCompletion(submitForm)
+})
+
+submitForm.querySelectorAll("input[type='text']").forEach(input => {
+    input.addEventListener("keyup", () => checkFormCompletion(submitForm))
 })
 
 function resetSubmitForm() {
@@ -171,11 +174,16 @@ clearPreview.addEventListener("click", () => {
 })
 
 const submitFormBtn = document.getElementById("submit-photo")
-submitFormBtn.style.backgroundColor = "#A7A7A7"
-
+submitFormBtn.disabled = true
 submitForm.addEventListener("submit", async (e) => {
     e.preventDefault()
     let image = await sendPhoto(new FormData(submitForm))
     addWork(image)
     await populateModalWorks(await getWorks())
+    await insertPortfolioWorks(await getWorks())
+    modalSubmitForm.classList.add("inactive")
+    modalGallery.classList.remove("inactive")
+    checkFormCompletion(submitForm)
+    clearPreview.classList.add("inactive")
+    resetSubmitForm()
 })

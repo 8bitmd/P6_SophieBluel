@@ -3,7 +3,7 @@ const WORKS = await getWorks()
 
 const filterAll = document.querySelector(".filter-all")
 
-function insertPortfolioWorks(WORKS) {
+export function insertPortfolioWorks(WORKS) {
     for (let i = 0; i < WORKS.length; i++) {
         const gallery = document.querySelector(".gallery")
         const figure = document.createElement("figure")
