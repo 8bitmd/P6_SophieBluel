@@ -376,9 +376,8 @@ nav img {
 }
 
 #submit-photo {
-	position: relative;
-	bottom: 30px;
-	margin-bottom: -33px;
+	margin-bottom: 0;
+	margin-top: 30px;
 }
 
 .upload-preview {
@@ -386,6 +385,7 @@ nav img {
 	object-fit: contain;
 	width: 100%;
 	height: 100%;
+	font-size: 0;
 }
 
 .clear-preview {
@@ -485,8 +485,9 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
-input[type="submit"][disabled] {
+*:disabled {
 	background-color: #A7A7A7;
+	cursor: not-allowed;
 }
 
 footer nav ul {
